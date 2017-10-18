@@ -27,7 +27,7 @@ public class Controller implements Initializable{
                 entity,
                 new ParameterizedTypeReference<List<ReservationModel>>() {
                 });
-        
+
         System.out.println(s.getBody().stream()
                 .map(b -> b.toString())
                 .collect(Collectors.joining("\n")));

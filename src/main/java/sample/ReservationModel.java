@@ -1,12 +1,19 @@
 package sample;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+
 import java.time.LocalDate;
 
-
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class ReservationModel {
      private int id;
      private String name;
      private String lastname;
+     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+     @JsonDeserialize(using = LocalDateDeserializer.class)
      private LocalDate date;
      private String adres;
 
